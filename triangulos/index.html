@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="capa.png">
+    <title>Tri&acirc;ngulos</title>
+</head>
+
+<body>
+    <h1 class="titulo">Triângulos</h1>
+    
+    <section class="calculadora">
+        <h2>Calcule:</h2>
+
+        Ângulo A:
+        <input id="ÂnguloA" type="text" value="" />
+        <p>
+            Ângulo B:
+            <input id="ÂnguloB" type="text" value="" />
+        <p>
+            Ângulo C:
+            <input id="ÂnguloC" type="text" value="" />
+        <p>
+                <br>
+            <input id="input4" type="button" value="Resultado" onclick="resultado()" />
+    </section>
+
+    <h4>&copy;Copyright 2023 - Feito por Gabriel dos Anjos - TDS23</h4>
+
+</body>
+
+<script>
+    function resultado() {
+        var A = parseFloat(document.getElementById("ÂnguloA").value);
+        var B = parseFloat(document.getElementById("ÂnguloB").value);
+        var C = 180 - (A + B);
+
+        if (A <= 0 || B <= 0 || C <= 0 || A + B + C !== 180) {
+            alert('Os ângulos não formam um triângulo válido.');
+        } else {
+            if (A === B && B === C) {
+                alert('Este é um triângulo Equilátero.');
+                
+            } else if (A === B || A === C || B === C) {
+                alert('Este é um triângulo Isósceles.');
+    
+            } else {
+                alert('Este é um triângulo Escaleno.');
+            }
+        }
+    }
+
+    function exibirImagem(imagem) {
+        var divResultado = document.getElementById("resultadoImagem");
+        divResultado.innerHTML = '<img src="imagens/' + imagem + '" alt="Triângulo">';
+    }
+</script>
+
+</html>
